@@ -1,8 +1,8 @@
 <?php
-$serverName = "seu-servidor.database.windows.net";
-$database = "seu-banco";
-$username = "seu-usuario";
-$password = "sua-senha";
+$serverName = "evandroserver.database.windows.net";
+$database = "SQL_Evandro";
+$username = "evandroend";
+$password = "Esg@2021";
 
 // Conectar ao banco de dados
 try {
