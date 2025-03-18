@@ -8,9 +8,9 @@ if (!isset($_POST['api_key']) || $_POST['api_key'] !== $api_key) {
 }
 
 // Conectar ao banco de dados
-$server = "seu_servidor.database.windows.net";
-$user = "seu_usuario";
-$password = "sua_senha";
+$server = "esp32server.database.windows.net";
+$user = "evandro";
+$password = "Senai@106";
 $db = "SQL_Evandro";
 
 $conn = new mysqli($server, $user, $password, $db);
