@@ -1,5 +1,5 @@
 <?php
-$server = "sp32server.database.windows.net";
+$server = "esp32server.database.windows.net";
 $user = "evandro";
 $password = "sua_senha";
 $db = "Senai@106";
