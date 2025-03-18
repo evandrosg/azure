@@ -11,7 +11,7 @@ if (!isset($_POST['api_key']) || $_POST['api_key'] !== $api_key) {
 $server = "esp32server.database.windows.net";
 $user = "evandro";
 $password = "Senai@106";
-$db = "SQL_Evandro";
+$db = "esp32server/SQL_Evandro";
 
 $conn = new mysqli($server, $user, $password, $db);
 
