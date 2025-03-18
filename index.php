@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário</title>
-</head>
-<body>
-    <h2>Cadastro de Usuário</h2>
-    <form action="processa.php" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required><br><br>
+<?php
+// PHP Data Objects(PDO) Sample Code:
+try {
+    $conn = new PDO("sqlsrv:server = tcp:esp32server.database.windows.net,1433; Database = SQL_Evandro", "evandro", "Senai@106");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br><br>
-
-        <button type="submit">Cadastrar</button>
-    </form>
-</body>
-</html>
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "evandro", "pwd" => "{your_password_here}", "Database" => "SQL_Evandro", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:esp32server.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+?>
