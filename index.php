@@ -1,16 +1,25 @@
 <?php
-// PHP Data Objects(PDO) Sample Code:
-try {
-    $conn = new PDO("sqlsrv:server = tcp:esp32server.database.windows.net,1433; Database = SQL_Evandro", "evandro", "Senai@106");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
+$server = "sp32server.database.windows.net";
+$user = "evandro";
+$password = "sua_senha";
+$db = "Senai@106";
+
+$conn = new mysqli($server, $user, $password, $db);
+
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
 }
 
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "evandro", "pwd" => "{your_password_here}", "Database" => "SQL_Evandro", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:esp32server.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+$temperatura = $_POST['temperature'];
+$umidade = $_POST['humidity'];
+
+$sql = "INSERT INTO DHT22_Dados (temperatura, umidade) VALUES ('$temperatura', '$umidade')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Dados salvos com sucesso!";
+} else {
+    echo "Erro: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
 ?>
